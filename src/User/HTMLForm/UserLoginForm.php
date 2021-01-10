@@ -4,6 +4,7 @@ namespace Kris3XIQ\User\HTMLForm;
 
 use Anax\HTMLForm\FormModel;
 use Psr\Container\ContainerInterface;
+use Kris3XIQ\User\User;
 
 /**
  * Example of FormModel implementation.
@@ -18,14 +19,13 @@ class UserLoginForm extends FormModel
     public function __construct(ContainerInterface $di)
     {
         parent::__construct($di);
-
         $this->form->create(
             [
                 "id" => __CLASS__,
                 "legend" => "User Login"
             ],
             [
-                "user" => [
+                "username" => [
                     "type"        => "text",
                     //"description" => "Here you can place a description.",
                     //"placeholder" => "Here is a placeholder",
@@ -42,31 +42,54 @@ class UserLoginForm extends FormModel
                     "value" => "Login",
                     "callback" => [$this, "callbackSubmit"]
                 ],
+                "create" => [
+                    "type" => "submit",
+                    "value" => "Create new account",
+                    "callback" => [$this, "callbackCreateAccount"]
+                ]
             ]
         );
     }
-
-
 
     /**
      * Callback for submit-button which should return true if it could
      * carry out its work and false if something failed.
      *
-     * @return boolean true if okey, false if something went wrong.
+     * @return boolean false if something went wrong, redirect if successful.
      */
     public function callbackSubmit()
     {
-        $this->form->addOutput(
-            "Trying to login as: "
-            . $this->form->value("user")
-            . "<br>Password is kept a secret..."
-            //. $this->form->value("password")
-        );
+        // Get values from the submitted form
+        $username      = $this->form->value("username");
+        $password      = $this->form->value("password");
 
-        // Remember values during resubmit, useful when failing (retunr false)
-        // and asking the user to resubmit the form.
-        $this->form->rememberValues();
+        $user = new User();
+        $user->setDb($this->di->get("dbqb"));
+        $res = $user->verifyPassword($username, $password);
+        $account = $user->find("username", $username);
+        $gravatar = $account->gravatar;
 
-        return true;
+        if (!$res) {
+            $this->form->rememberValues();
+            $this->form->addOutput("User or password did not match.");
+            return false;
+        }
+
+        // Login account and redirect to homepage.
+        $this->di->get("session")->set("user", $username);
+        $this->di->get("session")->set("grav", $gravatar);
+        $this->di->get("response")->redirect("")->send();
+    }
+
+    /**
+     * Callback for create-button which should redirect the user
+     * to the create an account page.
+     *
+     * @return void
+     */
+    public function callbackCreateAccount()
+    {
+        // Redirect the user to user/create.
+        $this->di->get("response")->redirect("user/create")->send();
     }
 }
