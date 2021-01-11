@@ -3,7 +3,7 @@
 /vendor
 memory::
 composer.lock
-/test/Home/*
+/test/Home/HomeControllerTest.php
 /test/Questions/*
 /test/User/*
 
