@@ -40,6 +40,6 @@ class UserLoginFormTest extends TestCase
         $form->check();
 
         $res = $form->callbackSubmit();
-        $this->assertNull($res);
+        $this->assertFalse($res);
     }
 }
