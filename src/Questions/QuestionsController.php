@@ -180,19 +180,13 @@ class QuestionsController implements ContainerInjectableInterface
     public function commentAction(int $id) : object
     {
         $page = $this->di->get("page");
-        // $questions = new Questions();
-        // $questions->setDb($this->di->get("dbqb"));
-        // $question = $questions->find("id", $id);
+
         $answers = new Answers();
         $answers->setDb($this->di->get("dbqb"));
         $form = new CommentForm($this->di, $id);
         $form->check();
-        // $page->add("questions/crud/view-all", [
-        //     "questions" => $questions->findAll(),
-        // ]);
 
         $page->add("questions/view-answer", [
-            // "question" => $question,
             "answers" => $answers->findAllWhere("rowid = ?", $id),
             "form" => $form->getHTML(),
         ]);

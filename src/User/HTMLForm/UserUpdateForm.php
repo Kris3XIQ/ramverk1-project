@@ -20,7 +20,6 @@ class UserUpdateForm extends FormModel
     public function __construct(ContainerInterface $di, $id)
     {
         parent::__construct($di);
-        // $user_name = $_SESSION["user"];
         $user_name = $this->di->get("session")->get("user");
         $user = $this->getItemDetails($user_name);
         $this->form->create(
@@ -51,7 +50,6 @@ class UserUpdateForm extends FormModel
                 "password" => [
                     "type" => "text",
                     "validation" => ["not_empty"],
-                    //"value" => $user->password,
                     "placeholder" => "New password"
                 ],
 
@@ -98,7 +96,6 @@ class UserUpdateForm extends FormModel
         $user->email = $this->form->value("email");
         $gravatar = $user->gravatarEmail($this->form->value("email"));
         $user->gravatar = $gravatar;
-        // $user->password = $this->form->value("password");
         $user->setPassword($this->form->value("password"));
         $user->save();
         $username = $this->form->value("username");
@@ -108,26 +105,4 @@ class UserUpdateForm extends FormModel
         $this->di->get("response")->redirect("user")->send();
         // return true;
     }
-
-    // /**
-    //  * Callback what to do if the form was successfully submitted, this
-    //  * happen when the submit callback method returns true. This method
-    //  * can/should be implemented by the subclass for a different behaviour.
-    //  */
-    // public function callbackSuccess()
-    // {
-    //     $this->di->get("response")->redirect("questions")->send();
-    //     //$this->di->get("response")->redirect("questions/update/{$questions->id}");
-    // }
-
-    // /**
-    //  * Callback what to do if the form was unsuccessfully submitted, this
-    //  * happen when the submit callback method returns false or if validation
-    //  * fails. This method can/should be implemented by the subclass for a
-    //  * different behaviour.
-    //  */
-    // public function callbackFail()
-    // {
-    //     $this->di->get("response")->redirectSelf()->send();
-    // }
 }

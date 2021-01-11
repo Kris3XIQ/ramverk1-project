@@ -73,15 +73,13 @@ class CreateForm extends FormModel
         $filteredText = $filter->parse($text, ["nl2br","markdown"]);
         $question_ids = $questions->findAll("id");
         $last_id = end($question_ids);
-        var_dump($last_id);
+
         if ($last_id) {
             $set_id = $last_id->id + 1;
         } else {
             $set_id = 1;
         }
-        // $answer->answer = $reply;
-        //$answer->answer = $filteredText;
-        // $questions->question = $this->form->value("question");
+
         $questions->question = $filteredText;
         $questions->question_user = $_SESSION["user"];
         $questions->question_user_grav = $_SESSION["grav"];
@@ -92,7 +90,6 @@ class CreateForm extends FormModel
             $tag->setDb($this->di->get("dbqb"));
             $tag->tag = $tagg;
             $tag->tag_user = $_SESSION["user"];
-            // $tag->tag_question_id = $last_id->id + 1;
             $tag->tag_question_id = $set_id;
             $tag->tag_question_title = $this->form->value("title");
             $tag->tag_question = $this->form->value("question");
@@ -115,17 +112,4 @@ class CreateForm extends FormModel
     {
         $this->di->get("response")->redirect("questions")->send();
     }
-
-
-
-    // /**
-    //  * Callback what to do if the form was unsuccessfully submitted, this
-    //  * happen when the submit callback method returns false or if validation
-    //  * fails. This method can/should be implemented by the subclass for a
-    //  * different behaviour.
-    //  */
-    // public function callbackFail()
-    // {
-    //     $this->di->get("response")->redirectSelf()->send();
-    // }
 }

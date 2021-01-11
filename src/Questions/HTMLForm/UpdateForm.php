@@ -94,30 +94,4 @@ class UpdateForm extends FormModel
         $questions->save();
         return true;
     }
-
-
-
-    // /**
-    //  * Callback what to do if the form was successfully submitted, this
-    //  * happen when the submit callback method returns true. This method
-    //  * can/should be implemented by the subclass for a different behaviour.
-    //  */
-    // public function callbackSuccess()
-    // {
-    //     $this->di->get("response")->redirect("questions")->send();
-    //     //$this->di->get("response")->redirect("questions/update/{$questions->id}");
-    // }
-
-
-
-    // /**
-    //  * Callback what to do if the form was unsuccessfully submitted, this
-    //  * happen when the submit callback method returns false or if validation
-    //  * fails. This method can/should be implemented by the subclass for a
-    //  * different behaviour.
-    //  */
-    // public function callbackFail()
-    // {
-    //     $this->di->get("response")->redirectSelf()->send();
-    // }
 }

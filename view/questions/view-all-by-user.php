@@ -79,7 +79,7 @@ endif;
             <p> Comment </p>
         </div>
         <div class="question-title-wrapper">
-            <a href="<?= url("questions/question/{$comment->answer_id}"); ?>"> <h4><?= $comment->comment ?></h4></a>
+            <a href="<?= url("questions/question/{$comment->question_id}"); ?>"> <h4><?= $comment->comment ?></h4></a>
             <div class="tags-wrapper">
                 <?php foreach ($tags as $tag) : ?>
                     <div class="tag-button">

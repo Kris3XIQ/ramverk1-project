@@ -19,7 +19,8 @@ class Comments extends ActiveRecordModel
      *
      * @var integer $rowid primary key auto incremented.
      * @var string $answer_id id of the answer.
-     * @var string $comment_user associate comment to user.
+     * @var integer $question_id id of the question.
+     * @var integer $comment_user associate comment to user.
      * @var integer $comment_tags associate comment to a answer.
      * @var string $comment the actual comment.
      * @var integer $created datetime object, first created.
@@ -27,6 +28,7 @@ class Comments extends ActiveRecordModel
      */
     public $rowid;
     public $answer_id;
+    public $question_id;
     public $comment_user;
     public $comment_tags;
     public $comment;

@@ -104,15 +104,9 @@ class AnswerForm extends FormModel
         // Filter the text before saving it
         $filter = new MyTextFilter();
         $filteredText = $filter->parse($reply, ["markdown"]);
-        // $answer->answer = $reply;
         $answer->answer = $filteredText;
         $answer->save();
-        // $answers->findById("id", $this->form->value("id"));
-        // $answer->id = $this->form->value("id");
-        // $answer->answer_user = $_SESSION["user"];
-        // $answer->answer_tags = $this->form->value("tags");
-        // $answer->votes = 0;
-        // $answer->answer = $this->form->value("answer");
+
         return true;
     }
 
@@ -126,7 +120,6 @@ class AnswerForm extends FormModel
     public function callbackSuccess()
     {
         $this->di->get("response")->redirect("questions")->send();
-        //$this->di->get("response")->redirect("questions/update/{$questions->id}");
     }
 
 

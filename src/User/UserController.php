@@ -22,27 +22,6 @@ class UserController implements ContainerInjectableInterface
 {
     use ContainerInjectableTrait;
 
-
-
-    /**
-     * @var $data description
-     */
-    //private $data;
-
-
-
-    // /**
-    //  * The initialize method is optional and will always be called before the
-    //  * target method/action. This is a convienient method where you could
-    //  * setup internal properties that are commonly used by several methods.
-    //  *
-    //  * @return void
-    //  */
-    // public function initialize() : void
-    // {
-    //     ;
-    // }
-
     /**
      * Description.
      *
@@ -117,37 +96,6 @@ class UserController implements ContainerInjectableInterface
             "title" => "A create user page",
         ]);
     }
-
-    // /**
-    //  *  Profile Page
-    //  * 
-    //  * @return object response object.
-    //  */
-    // public function profileAction() : object
-    // {
-    //     $page = $this->di->get("page");
-    //     // if (isset($_SESSION["user"])) {
-    //     $user = $this->di->get("session")->get("user");
-    //     if (isset($user)) {
-    //         // $old_user = $_SESSION["user"];
-    //         // $old_user = $this->di->get("session")->get("user");
-    //         // $updated_user = new UserUpdateForm();
-    //         // $updated_user->setDb($this->di->get("dbqb"));
-    //         // $updated_user->find("username", $old_user);
-    //         $user->setDb($this->di->get("dbqb"));
-    //         $user->find("username", $user);
-
-    //     };
-    //     // $user->setDb($this->di->get("dbqb"));
-        
-    //     $page->add("user/profile", [
-    //         "user" => 
-    //     ]);
-
-    //     return $page->render([
-    //         "title" => "Your profile page"
-    //     ]);
-    // }
 
     /**
      *  Update profile page

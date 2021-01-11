@@ -35,12 +35,16 @@ class CommentForm extends FormModel
                     "value" => $answer->rowid,
                 ],
 
+                "question_id" => [
+                    "type" => "hidden",
+                    "value" => $answer->question_id,
+                ],
+
                 "reply" => [
                     "type" => "textarea",
                     "label" => "",
                     "validation" => ["not_empty"],
                     "placeholder" => "Comment to this answer..",
-                    // "value" => $questions->title,
                 ],
 
                 "tags" => [
@@ -88,6 +92,7 @@ class CommentForm extends FormModel
 
         // Get values from the submitted form
         $answer_id     = $this->form->value("id");
+        $question_id   = $this->form->value("question_id");
         $comment_user  = $_SESSION["user"];
         $comment_tags  = $this->form->value("tags");
         $reply         = $this->form->value("reply");
@@ -95,6 +100,7 @@ class CommentForm extends FormModel
         $comment = new Comments();
         $comment->setDb($this->di->get("dbqb"));
         $comment->answer_id = $answer_id;
+        $comment->question_id = $question_id;
         $comment->comment_user = $comment_user;
         $comment->comment_tags = $comment_tags;
         $comment->created = date("Y-m-d h:i:s a");
@@ -104,12 +110,7 @@ class CommentForm extends FormModel
         $comment->comment = $reply;
         $comment->comment = $filteredText;
         $comment->save();
-        // $answers->findById("id", $this->form->value("id"));
-        // $answer->id = $this->form->value("id");
-        // $answer->answer_user = $_SESSION["user"];
-        // $answer->answer_tags = $this->form->value("tags");
-        // $answer->votes = 0;
-        // $answer->answer = $this->form->value("answer");
+
         return true;
     }
 
@@ -123,7 +124,6 @@ class CommentForm extends FormModel
     public function callbackSuccess()
     {
         $this->di->get("response")->redirect("questions")->send();
-        //$this->di->get("response")->redirect("questions/update/{$questions->id}");
     }
 
 
