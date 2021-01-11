@@ -25,3 +25,6 @@ Step03
 ---
 Run:
 > bash install.bash
+
+Step04
+You now have a clean installation of the project, with the database setup. It's merely an empty shell at first but go ahead and add as much data you want, enjoy!
