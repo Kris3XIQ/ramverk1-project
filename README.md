@@ -8,5 +8,12 @@ Scrutinizer: [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Kris3XIQ/
 
 ## Installation instructions
 ---
+Step01
 From the command-line, run:  
 git clone https://github.com/Kris3XIQ/ramverk1-project.git
+
+Step02
+cd ramverk1-project/
+
+Step03
+bash install.bash
