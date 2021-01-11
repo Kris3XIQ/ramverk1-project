@@ -11,6 +11,8 @@ use PHPUnit\Framework\TestCase;
  */
 class AboutControllerTest extends TestCase
 {
+    protected $di;
+
     /**
      * Prepare before each test.
      */

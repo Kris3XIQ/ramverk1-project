@@ -5,18 +5,20 @@ namespace Kris3XIQ\Questions;
 use Anax\Response\ResponseUtility;
 use Anax\DI\DIFactoryConfig;
 use PHPUnit\Framework\TestCase;
-use Kris3XIQ\Questions\HTMLForm\CreateForm;
-use Kris3XIQ\Questions\HTMLForm\EditForm;
-use Kris3XIQ\Questions\HTMLForm\DeleteForm;
-use Kris3XIQ\Questions\HTMLForm\UpdateForm;
-use Kris3XIQ\Questions\HTMLForm\AnswerForm;
-use Kris3XIQ\Questions\HTMLForm\CommentForm;
+// use Kris3XIQ\Questions\HTMLForm\CreateForm;
+// use Kris3XIQ\Questions\HTMLForm\EditForm;
+// use Kris3XIQ\Questions\HTMLForm\DeleteForm;
+// use Kris3XIQ\Questions\HTMLForm\UpdateForm;
+// use Kris3XIQ\Questions\HTMLForm\AnswerForm;
+// use Kris3XIQ\Questions\HTMLForm\CommentForm;
 
 /**
  * Test the SampleController.
  */
 class QuestionControllerTest extends TestCase
 {
+    protected $di;
+
     /**
      * Prepare before each test.
      */

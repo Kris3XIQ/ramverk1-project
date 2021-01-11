@@ -13,6 +13,8 @@ use PHPUnit\Framework\TestCase;
  */
 class UserLoginFormTest extends TestCase
 {
+    protected $di;
+
     /**
      * Prepare before each test.
      */
