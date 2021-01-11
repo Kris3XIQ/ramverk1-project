@@ -13,7 +13,15 @@ From the command-line, run:
 git clone https://github.com/Kris3XIQ/ramverk1-project.git
 
 Step02
+---
 cd ramverk1-project/
 
 Step03
-bash install.bash
+---
+Run:
+> composer install
+
+Step03
+---
+Run:
+> bash install.bash
