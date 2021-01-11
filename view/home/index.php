@@ -18,32 +18,6 @@ endif;
     <div class="home-content">
         <h3>Welcome to Kris3XIQ</h3>
     </div>
-    <div class="home-latest-questions">
-        <p>Latest questions</p>
-    </div>
-    <?php foreach ($questions as $question) :
-        $tags = explode(",", $question->question_tags);
-        ?>
-        <div class="questions-wrapper">
-            <div class="question-votes-wrapper">
-                <a href="<?= url("user/posts/{$question->question_user}"); ?>"><img src=<?= $question->question_user_grav ?>></a>
-            </div>
-            <div class="question-title-wrapper">
-                <a href="<?= url("questions/question/{$question->id}"); ?>"> <h4><?= $question->title ?></h4></a>
-                <div class="tags-wrapper">
-                    <?php foreach ($tags as $tag) : ?>
-                        <div class="tag-button">
-                            <a href="<?= url("tags/tag/{$tag}"); ?>"><p><?= $tag ?></p></a>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-            <div class="question-user-wrapper">
-                <p>Asked by: <a href="<?= url("user/posts/{$question->question_user}"); ?>"><?= $question->question_user ?></p></a>
-            </div>
-        </div>
-    <?php endforeach; ?>
-    </div>
     <?php if (isset($top_tags)) : ?>
         <div class="home-all-tags-wrapper">
             <div class="home-common-tags">
@@ -73,4 +47,30 @@ endif;
             <?php endif;?>
         </div>
     <?php endif;?>
+    <div class="home-latest-questions">
+        <p>Latest questions</p>
+    </div>
+    <?php foreach ($questions as $question) :
+        $tags = explode(",", $question->question_tags);
+        ?>
+        <div class="questions-wrapper">
+            <div class="question-votes-wrapper">
+                <a href="<?= url("user/posts/{$question->question_user}"); ?>"><img src=<?= $question->question_user_grav ?>></a>
+            </div>
+            <div class="question-title-wrapper">
+                <a href="<?= url("questions/question/{$question->id}"); ?>"> <h4><?= $question->title ?></h4></a>
+                <div class="tags-wrapper">
+                    <?php foreach ($tags as $tag) : ?>
+                        <div class="tag-button">
+                            <a href="<?= url("tags/tag/{$tag}"); ?>"><p><?= $tag ?></p></a>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <div class="question-user-wrapper">
+                <p>Asked by: <a href="<?= url("user/posts/{$question->question_user}"); ?>"><?= $question->question_user ?></p></a>
+            </div>
+        </div>
+    <?php endforeach; ?>
+    </div>
 </div>

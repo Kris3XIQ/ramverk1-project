@@ -6,7 +6,7 @@ use Anax\HTMLForm\FormModel;
 use Psr\Container\ContainerInterface;
 use Kris3XIQ\Questions\Questions;
 use Kris3XIQ\Questions\Tags;
-use \Kris3XIQ\TextFilter\MyTextFilter;
+use Kris3XIQ\TextFilter\MyTextFilter;
 
 /**
  * Form to create an item.
