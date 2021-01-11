@@ -3,4 +3,8 @@
 /vendor
 memory::
 composer.lock
+/test/Home
+/test/Questions
+/test/User
+
 # .phpunit.result.cache
