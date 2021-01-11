@@ -12,14 +12,6 @@ $user = isset($_SESSION["user"]);
 $urlToCreate = url("questions/create");
 
 ?>
-<?php if (!$questions) : ?>
-    <?php if(!$comments) : ?>
-        <p>There are no items to show.</p>
-    <?php
-        return;
-    endif;
-endif;
-?>
 <?php if (!$user) : ?>
     <h2 style="text-align: center;">Log in to view all the questions</h2>
 <?php
@@ -75,7 +67,7 @@ endif;
             </div>
         </div>
         <div class="question-user-wrapper">
-            <p>Asked by: <a href="<?= url("user/posts/{$question->question_user}"); ?>"><?= $question->question_user ?></p></a>
+            <p>Answered by: <a href="<?= url("user/posts/{$answer->answer_user}"); ?>"><?= $answer->answer_user ?></p></a>
         </div>
     </div>
 <?php endforeach; ?>

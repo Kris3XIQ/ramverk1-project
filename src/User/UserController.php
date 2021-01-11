@@ -55,7 +55,8 @@ class UserController implements ContainerInjectableInterface
     public function indexActionGet() : object
     {
         $page = $this->di->get("page");
-        $username = $_SESSION["user"];
+        // $username = $_SESSION["user"];
+        $username = $this->di->get("session")->get("user");
         $user = new User();
         $user->setDb($this->di->get("dbqb"));
         $user->find("username", $username);
@@ -117,29 +118,36 @@ class UserController implements ContainerInjectableInterface
         ]);
     }
 
-    /**
-     *  Profile Page
-     * 
-     * @return object response object.
-     */
-    public function profileAction() : object
-    {
-        $page = $this->di->get("page");
-        if (isset($_SESSION["user"])) {
-            $old_user = $_SESSION["user"];
-            $updated_user = new UserUpdateForm();
-            $updated_user->setDb($this->di->get("dbqb"));
-            $updated_user-find("username", $old_user);
+    // /**
+    //  *  Profile Page
+    //  * 
+    //  * @return object response object.
+    //  */
+    // public function profileAction() : object
+    // {
+    //     $page = $this->di->get("page");
+    //     // if (isset($_SESSION["user"])) {
+    //     $user = $this->di->get("session")->get("user");
+    //     if (isset($user)) {
+    //         // $old_user = $_SESSION["user"];
+    //         // $old_user = $this->di->get("session")->get("user");
+    //         // $updated_user = new UserUpdateForm();
+    //         // $updated_user->setDb($this->di->get("dbqb"));
+    //         // $updated_user->find("username", $old_user);
+    //         $user->setDb($this->di->get("dbqb"));
+    //         $user->find("username", $user);
 
-        };
-        $user->setDb($this->di->get("dbqb"));
+    //     };
+    //     // $user->setDb($this->di->get("dbqb"));
         
-        $page->add("user/profile");
+    //     $page->add("user/profile", [
+    //         "user" => 
+    //     ]);
 
-        return $page->render([
-            "title" => "Your profile page"
-        ]);
-    }
+    //     return $page->render([
+    //         "title" => "Your profile page"
+    //     ]);
+    // }
 
     /**
      *  Update profile page

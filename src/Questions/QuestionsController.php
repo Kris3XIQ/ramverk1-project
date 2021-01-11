@@ -121,7 +121,6 @@ class QuestionsController implements ContainerInjectableInterface
         $page = $this->di->get("page");
         $form = new UpdateForm($this->di, $id);
         $form->check();
-        var_dump($form);
 
         $page->add("questions/crud/update", [
             "form" => $form->getHTML(),

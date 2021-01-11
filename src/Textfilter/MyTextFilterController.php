@@ -46,153 +46,153 @@ class MyTextFilterController implements AppInjectableInterface
 
 
 
-    /**
-     * This is the index method action, it handles:
-     * ANY METHOD mountpoint
-     * ANY METHOD mountpoint/
-     * ANY METHOD mountpoint/index
-     *
-     * @return string
-     */
-    public function indexAction() : string
-    {
-        // Deal with the action and return a response.
-        //return __METHOD__ . ", \$db is {$this->db}";
-        return "INDEX!!";
-    }
+    // /**
+    //  * This is the index method action, it handles:
+    //  * ANY METHOD mountpoint
+    //  * ANY METHOD mountpoint/
+    //  * ANY METHOD mountpoint/index
+    //  *
+    //  * @return string
+    //  */
+    // public function indexAction() : string
+    // {
+    //     // Deal with the action and return a response.
+    //     //return __METHOD__ . ", \$db is {$this->db}";
+    //     return "INDEX!!";
+    // }
 
-    /**
-     * This is the index method action, it handles:
-     * ANY METHOD mountpoint
-     * ANY METHOD mountpoint/
-     * ANY METHOD mountpoint/index
-     *
-     * @return string
-     */
-    public function debugAction() : string
-    {
-        // Deal with the action and return a response.
-        //return __METHOD__ . ", \$db is {$this->db}";
-        return "Debug my database!!";
-    }
+    // /**
+    //  * This is the index method action, it handles:
+    //  * ANY METHOD mountpoint
+    //  * ANY METHOD mountpoint/
+    //  * ANY METHOD mountpoint/index
+    //  *
+    //  * @return string
+    //  */
+    // public function debugAction() : string
+    // {
+    //     // Deal with the action and return a response.
+    //     //return __METHOD__ . ", \$db is {$this->db}";
+    //     return "Debug my database!!";
+    // }
 
-    /**
-     * This is the index method action, it handles:
-     * ANY METHOD mountpoint
-     * ANY METHOD mountpoint/
-     * ANY METHOD mountpoint/index
-     *
-     * @return string
-     */
-    public function initAction() : object
-    {
-        /**
-         * Show all movies.
-         */
-        $response = $this->app->response;
-        return $response->redirect("filter/myFilters");
-    }
+    // /**
+    //  * This is the index method action, it handles:
+    //  * ANY METHOD mountpoint
+    //  * ANY METHOD mountpoint/
+    //  * ANY METHOD mountpoint/index
+    //  *
+    //  * @return string
+    //  */
+    // public function initAction() : object
+    // {
+    //     /**
+    //      * Show all movies.
+    //      */
+    //     $response = $this->app->response;
+    //     return $response->redirect("filter/myFilters");
+    // }
 
-    /**
-     * This is the index method action, it handles:
-     * ANY METHOD mountpoint
-     * ANY METHOD mountpoint/
-     * ANY METHOD mountpoint/index
-     *
-     * @return string
-     */
-    public function myFiltersActionGet() : object
-    {
-        $page = $this->app->page;
-        $title = "Olika textfilter";
+    // /**
+    //  * This is the index method action, it handles:
+    //  * ANY METHOD mountpoint
+    //  * ANY METHOD mountpoint/
+    //  * ANY METHOD mountpoint/index
+    //  *
+    //  * @return string
+    //  */
+    // public function myFiltersActionGet() : object
+    // {
+    //     $page = $this->app->page;
+    //     $title = "Olika textfilter";
 
-        $page->add("textfilter/header");
-        $page->add("textfilter/index");
-        return $page->render([
-            "title" => $title,
-        ]);
-    }
+    //     $page->add("textfilter/header");
+    //     $page->add("textfilter/index");
+    //     return $page->render([
+    //         "title" => $title,
+    //     ]);
+    // }
 
 
-    /**
-     * This is the index method action, it handles:
-     * ANY METHOD mountpoint
-     * ANY METHOD mountpoint/
-     * ANY METHOD mountpoint/index
-     *
-     * @return string
-     */
-    public function bbcodeActionGet() : object
-    {
-        $page = $this->app->page;
-        $title = "BBCode Textfilter";
+    // /**
+    //  * This is the index method action, it handles:
+    //  * ANY METHOD mountpoint
+    //  * ANY METHOD mountpoint/
+    //  * ANY METHOD mountpoint/index
+    //  *
+    //  * @return string
+    //  */
+    // public function bbcodeActionGet() : object
+    // {
+    //     $page = $this->app->page;
+    //     $title = "BBCode Textfilter";
 
-        $page->add("textfilter/header");
-        $page->add("textfilter/bbcode");
-        return $page->render([
-            "title" => $title,
-        ]);
-    }
+    //     $page->add("textfilter/header");
+    //     $page->add("textfilter/bbcode");
+    //     return $page->render([
+    //         "title" => $title,
+    //     ]);
+    // }
 
-    /**
-     * This is the index method action, it handles:
-     * ANY METHOD mountpoint
-     * ANY METHOD mountpoint/
-     * ANY METHOD mountpoint/index
-     *
-     * @return string
-     */
-    public function linkActionGet() : object
-    {
-        $page = $this->app->page;
-        $title = "BBCode Textfilter";
+    // /**
+    //  * This is the index method action, it handles:
+    //  * ANY METHOD mountpoint
+    //  * ANY METHOD mountpoint/
+    //  * ANY METHOD mountpoint/index
+    //  *
+    //  * @return string
+    //  */
+    // public function linkActionGet() : object
+    // {
+    //     $page = $this->app->page;
+    //     $title = "BBCode Textfilter";
 
-        $page->add("textfilter/header");
-        $page->add("textfilter/link");
-        return $page->render([
-            "title" => $title,
-        ]);
-    }
+    //     $page->add("textfilter/header");
+    //     $page->add("textfilter/link");
+    //     return $page->render([
+    //         "title" => $title,
+    //     ]);
+    // }
 
-    /**
-     * This is the index method action, it handles:
-     * ANY METHOD mountpoint
-     * ANY METHOD mountpoint/
-     * ANY METHOD mountpoint/index
-     *
-     * @return string
-     */
-    public function markdownActionGet() : object
-    {
-        $page = $this->app->page;
-        $title = "BBCode Textfilter";
+    // /**
+    //  * This is the index method action, it handles:
+    //  * ANY METHOD mountpoint
+    //  * ANY METHOD mountpoint/
+    //  * ANY METHOD mountpoint/index
+    //  *
+    //  * @return string
+    //  */
+    // public function markdownActionGet() : object
+    // {
+    //     $page = $this->app->page;
+    //     $title = "BBCode Textfilter";
 
-        $page->add("textfilter/header");
-        $page->add("textfilter/markdown");
-        return $page->render([
-            "title" => $title,
-        ]);
-    }
+    //     $page->add("textfilter/header");
+    //     $page->add("textfilter/markdown");
+    //     return $page->render([
+    //         "title" => $title,
+    //     ]);
+    // }
 
-    /**
-     * This is the index method action, it handles:
-     * ANY METHOD mountpoint
-     * ANY METHOD mountpoint/
-     * ANY METHOD mountpoint/index
-     *
-     * @return string
-     */
-    public function nl2brActionGet() : object
-    {
-        $page = $this->app->page;
-        $title = "BBCode Textfilter";
+    // /**
+    //  * This is the index method action, it handles:
+    //  * ANY METHOD mountpoint
+    //  * ANY METHOD mountpoint/
+    //  * ANY METHOD mountpoint/index
+    //  *
+    //  * @return string
+    //  */
+    // public function nl2brActionGet() : object
+    // {
+    //     $page = $this->app->page;
+    //     $title = "BBCode Textfilter";
 
-        $page->add("textfilter/header");
-        $page->add("textfilter/nl2br");
-        return $page->render([
-            "title" => $title,
-        ]);
-    }
+    //     $page->add("textfilter/header");
+    //     $page->add("textfilter/nl2br");
+    //     return $page->render([
+    //         "title" => $title,
+    //     ]);
+    // }
     // /**
     //  * This sample method dumps the content of $app.
     //  * GET mountpoint/dump-app

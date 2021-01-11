@@ -20,7 +20,8 @@ class UserUpdateForm extends FormModel
     public function __construct(ContainerInterface $di, $id)
     {
         parent::__construct($di);
-        $user_name = $_SESSION["user"];
+        // $user_name = $_SESSION["user"];
+        $user_name = $this->di->get("session")->get("user");
         $user = $this->getItemDetails($user_name);
         $this->form->create(
             [

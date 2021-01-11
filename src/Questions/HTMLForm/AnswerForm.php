@@ -88,7 +88,8 @@ class AnswerForm extends FormModel
 
         // Get values from the submitted form
         $id            = $this->form->value("id");
-        $answer_user   = $_SESSION["user"];
+        // $answer_user   = $_SESSION["user"];
+        $answer_user   = $this->di->get("session")->get("user");
         $answer_tags   = $this->form->value("tags");
         $votes         = 0;
         $reply         = $this->form->value("reply");

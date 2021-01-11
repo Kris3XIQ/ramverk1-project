@@ -5,7 +5,7 @@ use \Kris3XIQ\TextFilter\MyTextFilter;
 
 // Include essentials
 require __DIR__ . "/../../src/TextFilter/config.php";
-include("../src/TextFilter/MyTextFilter.php");
+// include("../src/TextFilter/MyTextFilter.php");
 
 // Gather incoming variables and use default values if not set
 $question = isset($question) ? $question : null;
