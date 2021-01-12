@@ -57,7 +57,7 @@ endif;
             <p> Answer </p>
         </div>
         <div class="question-title-wrapper">
-            <a href="<?= url("questions/question/{$answer->rowid}"); ?>"> <h4><?= $answer->answer ?></h4></a>
+            <a href="<?= url("questions/question/{$answer->question_id}"); ?>"> <h4><?= $answer->answer ?></h4></a>
             <div class="tags-wrapper">
                 <?php foreach ($tags as $tag) : ?>
                     <div class="tag-button">
